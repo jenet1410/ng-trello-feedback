@@ -1,0 +1,183 @@
+#myBtn {
+  background: #205081;
+  padding: 7px;
+  min-width: 100px;
+  border: 1px solid transparent;
+  font-weight: bold;
+  color: white;
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  &.top-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+  }
+  &.top-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+  }
+  &.bottom-left {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+  }
+  &.bottom-right {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+  }
+}
+
+.modal {
+  display: none;
+  z-index: 1; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  &.fixed-height {
+    height: 300px;
+  }
+  .loader {
+    border: .2em dotted #21669c;
+    border-radius: 50%;
+    animation: 1s loader-01 linear infinite;
+    width: 1em;
+    height: 1em;
+    pointer-events: none;
+  }
+
+  @keyframes loader-01 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+/* Modal Content */
+
+/* Add Animation */
+
+/* The Close Button */
+.close-modal {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  color: black;
+  text-align: center;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    &.success-msg, &.error-msg, &.show-loader {
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+    }
+    &.success-msg {
+      color: green;
+      width: 70%;
+    }
+    &.error-msg {
+      color: red;
+      width: 70%;
+    }
+    .form-container {
+        .form-group {
+          margin-top: 15px;
+          >div {
+            display: flex;
+            align-items: center;
+          }
+        }
+        .invalid-feedback {
+          color: red;
+          margin-left: 15%;
+          padding-top: 5px;
+        }
+        label {
+          width: 15%;
+          display: inline-block;
+        }
+        input[type=text], input[type=email], textarea {
+          width: 85%;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-shadow: inset 0 1px 3px #ddd;
+          border-radius: 4px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+        .submit-btn {
+          text-align: center;
+          margin: 20px;
+          button {
+            width: 20%;
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+          }
+        }
+        .asterisk {
+          color: red;
+        }
+    }
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+

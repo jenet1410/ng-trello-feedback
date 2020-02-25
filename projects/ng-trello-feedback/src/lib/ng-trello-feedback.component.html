@@ -1,0 +1,72 @@
+<!-- <p>
+    ng-trello-feedback works! {{this.title}}
+</p>
+<button [ngStyle]="{'font-size': customButton.fontSize,'color': customButton.fontColor,'background-color': customButton.bgColor, 'border-radius': customButton.borderRadius, 'border-color': customButton.borderColor, 'width': customButton.width, 'height': customButton.height}" class="{{customButton.position}}">{{customButtonName}}</button> -->
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" (click)="openModal()" class="{{customBtnPosition}} {{btnClass}}" [ngStyle]="{'color': btnColor, 'background-color': btnBackGroundColor}">{{customButtonName}}</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" class={{modalClass}}>
+  <!-- Modal content -->
+  <div class="modal-content" [ngClass]="{'fixed-height': successMsg || errorMsg || showLoader}">
+    <div class="modal-header">
+      <span class="close-modal" (click)="closeModal()">&times;</span>
+      <h2 *ngIf="!successMsg && !errorMsg && !showLoader">Please provide your Feedback.</h2>
+    </div>
+    <div class="modal-body" [ngClass]="{'success-msg': successMsg, 'error-msg': errorMsg, 'show-loader': showLoader}">
+        <div class="form-container" *ngIf="!successMsg && !errorMsg && !showLoader">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <div>
+                        <label for="name">Name <span class="asterisk">&#8727;</span></label>
+                        <input type="text" class="form-name" name="name" [(ngModel)]="model.name" #name="ngModel" [ngClass]="{ 'is-invalid': name.touched && name.invalid }" required />
+                    </div>
+                    <div *ngIf="name.touched && name.invalid" class="invalid-feedback">
+                        <div *ngIf="name.errors.required">Name is required</div>
+                    </div>
+                </div>
+                <div *ngIf="showEmail" class="form-group">
+                    <div>
+                        <label for="email">Email <span class="asterisk">&#8727;</span></label>
+                        <input type="email" class="form-email" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required />
+                    </div>
+                    <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+                        <div *ngIf="email.errors.required">Email is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="issue">Issue <span class="asterisk">&#8727;</span></label>
+                        <input type="text" class="form-issue" name="issue" [(ngModel)]="model.issue" #issue="ngModel" [ngClass]="{ 'is-invalid': issue.touched && issue.invalid }" required />
+                    </div>
+                    <div *ngIf="issue.touched && issue.invalid" class="invalid-feedback">
+                        <div *ngIf="issue.errors.required">Issue name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label>Issue Detail<span class="asterisk">&#8727;</span></label>
+                        <textarea class="form-description" rows="4" cols="50" name="description" [(ngModel)]="model.description" #description="ngModel" [ngClass]="{ 'is-invalid': description.touched && description.invalid }" required></textarea>
+                    </div>
+                    <div *ngIf="description.touched && description.invalid" class="invalid-feedback">
+                        <div *ngIf="description.errors.required">Description is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="file">Attachment</label>
+                    <input type="file" name="file" [(ngModel)]="model.file" #file="ngModel" (change)="handleFileInput($event)"/>
+                </div>
+                <div class="submit-btn">
+                    <button [disabled]="f.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="!showLoader && (successMsg || errorMsg)" style="text-align: center;">
+            {{successMsg ? successMsg : errorMsg}}
+        </div>
+        <div *ngIf="showLoader" class="loader"></div>
+    </div>
+  </div>
+</div>
+
