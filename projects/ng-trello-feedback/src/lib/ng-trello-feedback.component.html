@@ -11,8 +11,8 @@
   <!-- Modal content -->
   <div class="modal-content" [ngClass]="{'fixed-height': successMsg || errorMsg || showLoader}">
     <div class="modal-header">
+      <h2 *ngIf="!successMsg && !errorMsg && !showLoader" class="modal-header-title">Please provide your Feedback.</h2>
       <span class="close-modal" (click)="closeModal()">&times;</span>
-      <h2 *ngIf="!successMsg && !errorMsg && !showLoader">Please provide your Feedback.</h2>
     </div>
     <div class="modal-body" [ngClass]="{'success-msg': successMsg, 'error-msg': errorMsg, 'show-loader': showLoader}">
         <div class="form-container" *ngIf="!successMsg && !errorMsg && !showLoader">

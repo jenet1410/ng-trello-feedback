@@ -110,6 +110,10 @@
   padding: 2px 16px;
   color: black;
   text-align: center;
+  border-bottom: none;
+  .modal-header-title {
+    display: inline-block;
+  }
 }
 
 .modal-body {
