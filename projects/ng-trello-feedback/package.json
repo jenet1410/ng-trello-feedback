@@ -1,8 +1,6 @@
 {
   "name": "ng-trello-feedback",
-  "version": "0.0.0",
-  "author": "JENET SHINY JOHN BRITTO",
-  "license": "MIT",
+  "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"

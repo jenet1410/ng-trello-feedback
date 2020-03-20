@@ -9,15 +9,15 @@ import { NgForm } from '@angular/forms';
 })
 export class NgTrelloFeedbackComponent implements OnInit {
   @Input() public customButtonName: string = 'Provide Feedback';
+  @Input() public modalTitle: string = 'Please provide your Feedback';
   @Input() public customBtnPosition: string = 'top-right';
   @Input() public appKey: string;
   @Input() public appToken: string;
-  //@Input() public trelloBoardUrl: string;
   @Input() public trelloListName: string;
   @Input() public boardId: string;
   @Input() public modalClass: string;
   @Input() public btnClass: string;
-  @Input() public showEmail: boolean;
+  @Input() public showEmail: boolean = true;
   @Input() public btnColor: string;
   @Input() public btnBackGroundColor: string;
 
